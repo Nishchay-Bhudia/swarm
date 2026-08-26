@@ -34,3 +34,11 @@ that need separate legal/product input. Raised by: PM, refined after Developer's
 gap."
 
 ## Implementation phase
+
+**Developer:** implements the endpoint + button, synchronous path only initially.
+
+**QA (independent, from requirements):** edge cases raised — account with zero content
+(empty export shouldn't error), account large enough to need the async path (what's the
+actual size threshold, is it defined anywhere), concurrent export requests from the same
+user (should the second request queue or reject), and what happens if the download is
+interrupted mid-transfer.
