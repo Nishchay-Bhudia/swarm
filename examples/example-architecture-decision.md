@@ -42,3 +42,15 @@ new question — what happens between "order placed" and "payment confirmed" if 
 worker never responds (crashes, queue message lost), specifically whether the order can
 be shipped/fulfilled in that gap before confirmation lands. That's a new trust boundary
 that didn't exist when it was one blocking synchronous call.
+
+**Debate:** Architect's initial design didn't specify how the main service prevents
+fulfillment before confirmation. Conceded this was a real gap — not a hypothetical,
+since it's a straightforward race in the new async design — and added an explicit
+"pending confirmation" order state that blocks fulfillment until the async worker
+confirms or the request times out and falls back to synchronous retry.
+
+**Critical Security finding, binding per the veto hierarchy:** the message queue must
+not carry raw payment tokens in plaintext between services — flagged as Critical, blocks
+finalization until addressed. Architect updated the design to pass only an opaque
+payment-intent reference, with the actual token handled solely by the existing
+PCI-scoped payment component, unchanged.
