@@ -25,3 +25,7 @@
   <!-- crossed beams motif: two opposing lines meeting at center, echoing "conflicting objectives" -->
   <g opacity="0.9">
     <line x1="80" y1="230" x2="420" y2="70" stroke="url(#accentA)" stroke-width="6" stroke-linecap="round"/>
+
+    <line x1="80" y1="70" x2="420" y2="230" stroke="url(#accentB)" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="250" cy="150" r="10" fill="#f5f7fa"/>
+  </g>
