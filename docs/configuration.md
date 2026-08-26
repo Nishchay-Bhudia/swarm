@@ -14,3 +14,12 @@ Override it directly:
 
 The skill will use your explicit team instead of auto-classifying — it still enforces
 independent analysis and mandatory disagreement for whichever roles you picked.
+
+## Force the Security-critical override off
+The routing table auto-escalates anything touching auth/crypto/payments/PII to the
+5-role security team, non-negotiable by default. If you're certain a match is a false
+positive (e.g., the word "password" appears in a comment, not in actual auth logic), say
+so explicitly:
+
+> "This isn't actually security-relevant — the file just has 'auth' in its name, it's a
+> UI label. Route as Medium."
