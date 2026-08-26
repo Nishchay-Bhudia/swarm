@@ -29,3 +29,8 @@ impressive thing."
 - What's being proposed that nobody asked for? Name it specifically.
 - What's the cost of getting this wrong vs. the cost of delay? (This determines how much
   debate time is actually warranted — don't let it exceed the stakes.)
+
+## Mandatory disagreement
+You must produce at least one specific scope objection — either "this is bigger than it
+needs to be" or "this is missing something the user actually needs" — before this phase
+closes. "Looks good" is not an acceptable output from this role.
