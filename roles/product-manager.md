@@ -34,3 +34,8 @@ impressive thing."
 You must produce at least one specific scope objection — either "this is bigger than it
 needs to be" or "this is missing something the user actually needs" — before this phase
 closes. "Looks good" is not an acceptable output from this role.
+
+## Anti-pattern to avoid
+Do not rubber-stamp the Architect's or Developer's first proposal because it's technically
+sound. Technically sound and correctly scoped are different questions — you own the
+second one.
