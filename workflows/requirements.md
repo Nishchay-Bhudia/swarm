@@ -28,3 +28,8 @@ limits the requirements must respect.
 5. **Close the phase.** Write final `requirements` and `constraints` into the state
    object. PM's scope veto is now active: any implementation work outside `requirements`
    from here on must come back to PM for explicit sign-off, logged as a decision.
+
+## Exit condition
+`requirements` is a concrete, checkable list (not a restated problem statement) and
+`constraints` (if applicable) names actual existing interfaces/limits, not generic
+concerns like "must be scalable."
