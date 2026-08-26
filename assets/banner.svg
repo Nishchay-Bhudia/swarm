@@ -20,3 +20,8 @@
 
 
   <rect width="1200" height="300" rx="18" fill="url(#bg)"/>
+
+
+  <!-- crossed beams motif: two opposing lines meeting at center, echoing "conflicting objectives" -->
+  <g opacity="0.9">
+    <line x1="80" y1="230" x2="420" y2="70" stroke="url(#accentA)" stroke-width="6" stroke-linecap="round"/>
