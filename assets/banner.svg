@@ -33,3 +33,7 @@
 
   <text x="470" y="150" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="72" font-weight="700" fill="#f5f7fa" dominant-baseline="middle">SWARM</text>
   <text x="472" y="200" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="400" fill="#9aa3b2" dominant-baseline="middle">A multi-role engineering swarm for Claude Code</text>
+
+
+  <g font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" fill="#6b7280">
+    <text x="474" y="240">PRODUCT · ARCHITECT · DEV · QA · SECURITY · LEAD</text>
