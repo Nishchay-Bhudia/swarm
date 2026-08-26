@@ -52,3 +52,26 @@ perspectives" prompting doesn't.
 | 🔍 **QA Engineer** | Edge cases, regressions | Untested critical paths | Developer (scope of testing) |
 | 🛡️ **Security Engineer** | Vulnerability prevention | **Critical findings — absolute** | Everyone (friction vs. real risk) |
 | ⚖️ **Tech Lead** | The right trade-off | Arbitrates all of the above | Nobody — arbitrates, never argues its own stake |
+
+Full role definitions with their independent-analysis checklists live in [`roles/`](roles/).
+
+## ⚙️ How a run actually flows
+
+```mermaid
+flowchart TD
+    A[Task in] --> B{Classify complexity}
+    B -->|Tiny / Small| Z[Answer directly — swarm skipped]
+    B -->|Medium / Large / Architectural / Security-critical| C[Select team]
+    C --> D[Requirements]
+    D --> E[Design]
+    E --> F[Implementation]
+    F --> G[Review]
+    G --> H{Termination met?}
+    H -->|No, under round cap| G
+    H -->|Yes, or hard cap hit| I[Decision log + deliverable + open risks]
+```
+
+Every phase runs the same inner loop: **independent analysis → cross-exposure →
+structured debate → mandatory disagreement check → Tech Lead arbitration**. Full
+mechanics per phase are in [`workflows/`](workflows/); the routing table that decides
+team size and round caps by task complexity is in [`SKILL.md`](SKILL.md).
