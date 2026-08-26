@@ -31,3 +31,24 @@ It's built from a synthesis of 90+ sources on multi-agent LLM reasoning, code re
 effectiveness, and agent failure modes — not vibes. See [`docs/failure-modes.md`](docs/failure-modes.md)
 for the specific things this design prevents, and why generic "consider multiple
 perspectives" prompting doesn't.
+
+## 🧠 Why structure beats personas
+
+| Without structure | With Swarm |
+|---|---|
+| All roles see the same context → converge on the same answer instantly | Independent analysis first — each role commits to a position before seeing the others' |
+| "Please consider security too" → generic, easy to skip | Security Engineer has a **binding veto** on critical findings — only overridable by an explicit, logged Tech Lead risk-acceptance |
+| Roles politely agree with whoever spoke first | **Mandatory disagreement** — every role must raise a concrete objection or explicitly justify having none |
+| Debate runs until it "feels" done | Hard round caps + a verifiable AND-condition on findings — see [Termination](#-termination-not-vibes) |
+| You get an answer | You get an answer **and** a decision log showing what was rejected, by whom, and why |
+
+## 👥 The team
+
+| Role | Optimizes for | Can veto | Conflicts with |
+|---|---|---|---|
+| 📋 **Product Manager** | User value, scope, timeline | Scope creep | Architect, Security (proportionality) |
+| 🏛️ **Architect** | Maintainability, long-term cost | Structural debt | PM (over-scoping), Developer (over-simplifying) |
+| 💻 **Developer** | Correct, simple implementation | Non-implementable designs | Architect, QA, Security (rework cost) |
+| 🔍 **QA Engineer** | Edge cases, regressions | Untested critical paths | Developer (scope of testing) |
+| 🛡️ **Security Engineer** | Vulnerability prevention | **Critical findings — absolute** | Everyone (friction vs. real risk) |
+| ⚖️ **Tech Lead** | The right trade-off | Arbitrates all of the above | Nobody — arbitrates, never argues its own stake |
