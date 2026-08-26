@@ -18,3 +18,6 @@ whether it touches a security boundary, do not guess silently and do not launch 
 
 2. If the guess materially changes team size (e.g., Small vs. Large) or triggers the
    Security-critical override, ask the user one direct question to resolve it rather
+
+   than proceeding on an assumption that could 4x the cost of the wrong call.
+3. If the ambiguity doesn't change team size or routing (e.g., it's clearly Medium
