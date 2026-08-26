@@ -157,3 +157,21 @@ didn't need this skill.
 These are the recurring ways this kind of swarm breaks, condensed from
 `docs/failure-modes.md` — read that file if one of these is actually happening, not
 preemptively:
+
+- **Echo chamber**: every role proposes the same thing round 1 → you skipped independent
+  isolation; redo the analysis step per-role.
+- **Fake disagreement / theater**: a role objects then instantly concedes with no new
+  evidence → treat objections as retracted only when the objecting role names what
+  changed its mind, not just "fair point."
+- **Over-deliberation**: round count is climbing and no `state` field is changing →
+  that's the smart-stop signal; arbitrate now, even under the hard cap.
+- **Scope creep mid-swarm**: implementation plan grows past what Requirements confirmed →
+  PM has scope veto; flag it and get explicit PM sign-off or cut it.
+- **Context drift on long tasks**: if you notice the swarm's own state contradicts an
+  earlier decision, re-read the state object (not the transcript) and re-assert the
+  contradicted decision before continuing.
+
+## Configuration
+
+See `docs/configuration.md` for how to override team size, force/skip roles, and adjust
+round caps for a single invocation without editing this file.
