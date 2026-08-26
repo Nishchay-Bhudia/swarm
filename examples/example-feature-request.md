@@ -52,3 +52,16 @@ than fixed, since duplicate exports are wasteful but not harmful. QA accepted th
 resolution given the stated reasoning.
 
 ## Review phase
+
+QA re-checked the fixed implementation against its checklist; no new blocking findings.
+Tech Lead closed the run.
+
+## Final decision log (excerpt)
+1. Export scope narrowed to owned/visible data only — PM, refined by Developer's gap.
+2. Async path for large accounts is in-scope, was initially missed by Developer,
+   fixed after QA caught it against PM's original requirements — not treated as a new
+   feature request.
+3. Concurrent duplicate exports: accepted as low-risk, unfixed in v1 — Developer's
+   proposal, QA sign-off logged.
+4. Deleted-record and third-party-linked data: explicitly out of scope for this run,
+   flagged in `risks` for future product/legal scoping.
