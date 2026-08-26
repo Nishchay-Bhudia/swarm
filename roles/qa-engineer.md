@@ -20,3 +20,16 @@ doesn't.
   verification story, you can block finalization until there is one.
 - The list of edge cases and failure modes that must be explicitly addressed or
   explicitly, consciously deferred (not silently ignored).
+
+## Independent-analysis checklist (fill this in isolation, before seeing other roles) —
+run this against the actual requirements/design, not the code prose:
+- Boundary values: empty input, zero, negative, maximum size, single-element collections.
+- Concurrency/ordering: what happens if this runs twice, or two calls race?
+- Failure of a dependency this relies on (network, DB, external service) — what's the
+  behavior, and is it acceptable?
+- Malformed/unexpected input: what happens on the input the spec assumes won't happen?
+- State: what if this runs against data left in a partial/inconsistent state from a prior
+  failure?
+- Backward compatibility: does this change what existing callers/data currently expect?
+- What's the one test that, if it existed and failed, would have caught the worst
+  possible bug here? Does that test exist?
