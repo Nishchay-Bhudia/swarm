@@ -130,3 +130,20 @@ ALL(
   security_findings has zero unresolved blocking items (skip only if tier has no Security role),
 ) OR iteration_count >= 8 OR elapsed wall-clock this task >= ~10 minutes of work
 ```
+
+If a hard cap is hit before the AND-condition is satisfied, say so explicitly to the
+user, list what's still open in `open_disagreements` / `risks`, and deliver the best
+available result rather than silently continuing or silently truncating. Never let this
+run indefinitely on ambiguity — an unresolved debate is a result to report, not a reason
+to keep debating.
+
+## Step 5 — Finalize
+
+Produce, in this order:
+1. **Decision log** — every entry in `architectural_decisions`, each with its rationale
+   and which role raised it.
+2. **Disagreements surfaced** — from `open_disagreements`, including ones that were
+   resolved (show what changed the Tech Lead's mind) and ones still open.
+3. **The actual deliverable** — code, plan, or review findings, per the task.
+4. **Risks and follow-ups** — anything a role flagged that didn't block finalization but
+   should be tracked.
