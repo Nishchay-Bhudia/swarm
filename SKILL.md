@@ -147,3 +147,13 @@ Produce, in this order:
 3. **The actual deliverable** — code, plan, or review findings, per the task.
 4. **Risks and follow-ups** — anything a role flagged that didn't block finalization but
    should be tracked.
+
+Do not just hand back final code with the debate discarded — the debate is the product
+here as much as the code is. A user who wanted only the code without the reasoning
+didn't need this skill.
+
+## Failure modes to actively guard against
+
+These are the recurring ways this kind of swarm breaks, condensed from
+`docs/failure-modes.md` — read that file if one of these is actually happening, not
+preemptively:
