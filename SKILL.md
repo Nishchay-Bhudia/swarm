@@ -52,3 +52,14 @@ then just do the work directly — do not force a team onto a task that doesn't 
 Never include a role outside this table's tiers unless the user explicitly asks for one.
 DevOps, UX, and Technical Writer roles do not exist in this skill; if a task genuinely
 needs one, say so and proceed without inventing a role that has no definition file.
+
+## Step 1 — Load only what's needed
+
+Read `roles/<role>.md` for each selected role now (each is short — a page, not an essay).
+Read the workflow files listed for this tier as you enter each phase, not all at once.
+Do not read role or workflow files for roles/phases that were not selected. This keeps
+the swarm's own context usage proportional to the task, which matters because context
+quality degrades well before the advertised window fills — see `docs/failure-modes.md`
+if you want the research behind that.
+
+## Step 2 — Maintain the state object, not a transcript
