@@ -9,3 +9,6 @@ table: **ambiguous task descriptions**, where the complexity tier itself is uncl
 
 ## When the task is ambiguous
 If you cannot tell from the task description whether this is Small/Medium/Large, or
+
+whether it touches a security boundary, do not guess silently and do not launch a
+5-role swarm on a speculative reading. Instead:
