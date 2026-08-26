@@ -24,3 +24,15 @@ must be justified by the decision's stakes. If you're unsure, ask the user in on
 rather than defaulting to the swarm.
 
 ## Step 0 — Classify complexity and select the team
+
+Score the task (rough heuristic, not arithmetic precision):
+
+- Touches one file, behavior is obvious, no ambiguity → **Tiny**
+- Single-file bug fix or small addition, low ambiguity → **Small**
+- Multi-file feature, some requirements ambiguity → **Medium**
+- New subsystem, module, or service → **Large**
+- Changes auth, crypto, payments, PII handling, or trust boundaries → **Security-critical**
+  (this flag overrides the size-based tier — always route to the 5-role security team)
+- Irreversible or hard-to-unwind technical/product decision → **Architectural**
+
+Route the team and workflow:
