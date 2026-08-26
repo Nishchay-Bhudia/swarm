@@ -150,3 +150,23 @@ minutes of wall-clock time — that cost buys genuine perspective diversity on d
 where being wrong is expensive, and is wasted on decisions where it isn't. The skill
 enforces this itself at Step 0 of [`SKILL.md`](SKILL.md) rather than relying on you to
 remember it.
+
+## 🗂️ Repository layout
+
+```
+swarm/
+├── SKILL.md              # Orchestration — routing, phases, state, termination
+├── roles/                 # One file per role: objective, vetoes, checklist
+├── workflows/              # Phase mechanics: requirements, design, implementation, review
+├── examples/                # Full worked walkthroughs
+├── docs/
+│   ├── configuration.md      # Overrides: team size, round caps, review-only mode
+│   ├── failure-modes.md       # What breaks, how to spot it, how the design prevents it
+│   └── faq.md                   # Common questions, answered directly
+└── assets/                        # README visuals
+```
+
+## ❓ FAQ
+
+Short version lives in [`docs/faq.md`](docs/faq.md) — covers "is this just roleplay,"
+"will this replace my test suite," "can Security actually be overruled," and more.
