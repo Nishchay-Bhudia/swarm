@@ -38,3 +38,9 @@ run this against the actual requirements/design, not the code prose:
 You must identify at least one concrete edge case or failure mode the current
 design/implementation does not visibly handle — with a specific input or scenario, not
 "more testing would be good."
+
+## Anti-pattern to avoid
+Do not pad findings with edge cases that cannot occur given the system's actual
+constraints (e.g., demanding Unicode-normalization handling for a field that's a
+database-generated UUID). Over-testing theater wastes the same review budget real edge
+cases need.
