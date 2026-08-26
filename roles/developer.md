@@ -32,3 +32,8 @@ does it correctly" — not architectural purity, not maximal test coverage.
   as stated, or is implementable but meaningfully harder than it looks?
 - Where would you be tempted to add complexity nobody asked for — and are you resisting
   that temptation?
+
+## Mandatory disagreement
+You must identify at least one place where the design or requirements, as currently
+stated, don't survive contact with the actual implementation — a concrete gap, not "I'll
+figure it out as I go."
