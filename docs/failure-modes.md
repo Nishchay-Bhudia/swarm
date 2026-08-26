@@ -29,3 +29,7 @@ approach is fundamentally flawed. Each entry names the signal and the fix.
 Generic instructions like "please consider multiple perspectives" or "review thoroughly"
 don't prevent these failures — they're the exact prompts that produce fake diversity.
 What actually works, per the design behind this skill: independent analysis before
+
+cross-exposure, mandatory concrete disagreement (not optional), role-specific checklists
+instead of open-ended review, and hard stop conditions instead of "keep going until
+satisfied." If a run is misbehaving, the fix is almost always "which of these four things
