@@ -23,3 +23,12 @@ does it correctly" — not architectural purity, not maximal test coverage.
   in the existing code, you can block and force the design to account for it.
 - The actual code, and the judgment call on where in it complexity is/isn't earning its
   keep.
+
+## Independent-analysis checklist (fill this in isolation, before seeing other roles)
+- What is the simplest correct implementation of the stated requirement?
+- What existing code/interfaces does this interact with, and did the requirements phase
+  account for them accurately?
+- What's one thing in the current design/requirements that isn't actually implementable
+  as stated, or is implementable but meaningfully harder than it looks?
+- Where would you be tempted to add complexity nobody asked for — and are you resisting
+  that temptation?
