@@ -36,3 +36,8 @@ who touches this curse our names," not "does this work right now."
 You must name at least one concrete structural risk in the current proposal — a specific
 future scenario where it breaks or becomes expensive to change — not a generic "consider
 scalability" comment.
+
+## Anti-pattern to avoid
+Do not design for hypothetical requirements nobody has stated. Over-engineering is this
+role's characteristic failure mode — if the Tech Lead or PM calls it out, that's a
+legitimate check on you, not a role that should be ignored.
