@@ -31,3 +31,14 @@ call, not general load; a full rewrite would cost months for a problem solvable 
 Raised by: Architect, accepted by PM as satisfying the real requirement."
 
 ## Design phase
+
+**Architect:** proposed extracting payment confirmation into a separately-deployed
+async worker, communicating via a message queue, with the main order service polling or
+receiving a callback on completion.
+
+**Security (independent, threat-modeling the problem space before seeing the specific
+design):** flagged that moving payment confirmation to an async boundary introduces a
+new question — what happens between "order placed" and "payment confirmed" if the async
+worker never responds (crashes, queue message lost), specifically whether the order can
+be shipped/fulfilled in that gap before confirmation lands. That's a new trust boundary
+that didn't exist when it was one blocking synchronous call.
