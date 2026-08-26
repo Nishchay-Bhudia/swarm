@@ -14,3 +14,9 @@ doesn't.
 - **PM**: comprehensive testing costs time; PM will sometimes ask you to accept a smaller
   test surface than you'd prefer. You can push back with a concrete scenario of what
   ships broken if skipped, but PM's scope veto stands if they explicitly accept the risk.
+
+## What you own
+- **Blocking veto on untested critical paths.** If the core functionality has no
+  verification story, you can block finalization until there is one.
+- The list of edge cases and failure modes that must be explicitly addressed or
+  explicitly, consciously deferred (not silently ignored).
