@@ -30,3 +30,5 @@ Populate `task`, `tier`, and `team` in the state object from `SKILL.md` before e
 
 the first real phase. Leave every other field as its empty default — do not pre-fill
 `requirements` or `risks` speculatively before the roles that own those fields have
+
+actually run.
