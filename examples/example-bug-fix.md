@@ -7,3 +7,11 @@ after they change a filter. Fix it."
 obvious from the report alone, so it's not Tiny. Team: Developer, QA, Tech Lead.
 
 ---
+
+## Implementation phase
+
+**Developer (independent):** traced it to a race condition — the search request from
+the *previous* filter state can resolve after the request from the *new* filter state if
+the network timing lines up, and the UI naively renders whichever response arrives last
+rather than the one matching the current filter. Proposed fix: tag each request with a
+request ID, only render the response if its ID matches the latest request issued.
