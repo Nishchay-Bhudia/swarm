@@ -116,3 +116,17 @@ constant across all of them, non-negotiable regardless of tier:
    above per decision point. If a decision is still unresolved at the cap, the Tech Lead
    makes the call with whatever evidence exists and logs the open question in
    `open_disagreements` rather than continuing to iterate.
+
+## Step 4 — Termination
+
+Stop and move to `FINALIZATION` when:
+
+```
+ALL(
+  requirements confirmed (skip if tier has no PM),
+  architecture approved (skip if tier has no Architect/design phase),
+  implementation complete (skip if tier has no code output),
+  qa_findings has zero unresolved blocking items,
+  security_findings has zero unresolved blocking items (skip only if tier has no Security role),
+) OR iteration_count >= 8 OR elapsed wall-clock this task >= ~10 minutes of work
+```
