@@ -89,3 +89,30 @@ state object back before each phase instead of scrolling up.
 
 Print this object (or the relevant slice) at each phase boundary so the user can watch
 the swarm's actual reasoning, not just a summary of it.
+
+## Step 3 — Run the phases
+
+Each workflow file (`workflows/*.md`) defines its own phase mechanics in detail. The
+constant across all of them, non-negotiable regardless of tier:
+
+1. **Independent analysis first.** Every role in the phase produces its position in
+   isolation — as if it hasn't seen any other role's output yet — even though you are
+   generating all of them. Do not let an earlier role's framing leak into a later role's
+   "independent" position; write each from that role's objective in `roles/<role>.md`
+   alone, then reveal them to each other in the debate step.
+2. **Mandatory disagreement.** Each role must produce at least one concrete objection to
+   some other role's position — a specific claim, not a vague concern — before the phase
+   can close. If a role genuinely has none, it must say so explicitly and give the reason
+   ("no objection because X was already covered by constraint Y"), never silently agree.
+   Silent, immediate agreement across all roles on the first proposal is a signal
+   something is wrong — restate the roles' objectives and redo the analysis step.
+3. **Structured debate, not chat.** Each exchange is: position → evidence → concern about
+   another role's position → alternative (if any) → recommendation. No free-form back
+   and forth.
+4. **The Tech Lead arbitrates; nobody votes.** Consensus is not the goal. The Tech Lead
+   weighs the vetoes and evidence and decides, and states the reason a losing position
+   lost. See the veto hierarchy in `roles/tech-lead.md`.
+5. **Hard cap on rounds.** Use the "Max debate rounds" figure from the routing table
+   above per decision point. If a decision is still unresolved at the cap, the Tech Lead
+   makes the call with whatever evidence exists and logs the open question in
+   `open_disagreements` rather than continuing to iterate.
