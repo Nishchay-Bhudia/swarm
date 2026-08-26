@@ -38,3 +38,13 @@ the table in `SKILL.md`). Override for a single run:
 If you invoke Swarm on something Tiny/Small, the skill already tells you it's
 skipping the swarm and does the work directly — you don't need to configure this away,
 it's the default behavior for low-stakes tasks.
+
+## Running review-only (no implementation)
+Swarm can run just the review phase against existing code instead of building
+something new:
+
+> "Run Swarm's review workflow against this diff — Security + QA + Architect, no
+> implementation phase, I already wrote the code."
+
+This uses `workflows/review.md` directly against your existing diff instead of code the
+swarm produced itself.
