@@ -40,3 +40,8 @@ This is the actual arbitration order when roles conflict and someone must decide
   fake consensus (everyone agreeing immediately with round 1) — both are failure signals
   documented in `docs/failure-modes.md`; call it out and force the isolation step to redo
   if you see it.
+
+## Mandatory output
+Every arbitration you make must be logged as a decision-log entry: the decision, the
+losing position(s), and the specific reason they lost — sourced from the veto hierarchy
+above, not "I felt it was the better approach."
