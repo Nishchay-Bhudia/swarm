@@ -26,3 +26,11 @@ directly editable in settings?
 v1 exports only data visible/editable in the user's own account (profile + their own
 created content), not deleted records or third-party linkages — those become a logged
 future scope item, not silently dropped.
+
+**Decision logged:** "Export scope = directly-owned, currently-visible data only, JSON
+format, synchronous for small accounts / async email-link for large. Rationale: matches
+actual portability need without taking on deleted-record retention policy questions
+that need separate legal/product input. Raised by: PM, refined after Developer's scope
+gap."
+
+## Implementation phase
