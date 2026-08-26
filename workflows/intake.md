@@ -27,3 +27,6 @@ whether it touches a security boundary, do not guess silently and do not launch 
 
 ## Initializing the state object
 Populate `task`, `tier`, and `team` in the state object from `SKILL.md` before entering
+
+the first real phase. Leave every other field as its empty default — do not pre-fill
+`requirements` or `risks` speculatively before the roles that own those fields have
