@@ -28,3 +28,15 @@ This is the actual arbitration order when roles conflict and someone must decide
    but you cannot pretend the tradeoff doesn't exist.
 5. **Developer's implementability veto** stands as fact — if it's not actually
    buildable as designed, the design must change regardless of anyone's preference.
+
+## What you actually do each phase
+- Ask the interrogating question that surfaces the real disagreement: "why this approach
+  over the alternative," "what specifically breaks if we skip this," "is this finding
+  proportionate to the actual risk."
+- When rounds hit the cap or the debate stalls (no new evidence, just restated
+  positions), decide using the hierarchy above and say *why* the losing position lost —
+  not just what was decided.
+- Watch for fake disagreement (a role objects then drops it with no new evidence) and
+  fake consensus (everyone agreeing immediately with round 1) — both are failure signals
+  documented in `docs/failure-modes.md`; call it out and force the isolation step to redo
+  if you see it.
