@@ -75,3 +75,22 @@ Every phase runs the same inner loop: **independent analysis → cross-exposure 
 structured debate → mandatory disagreement check → Tech Lead arbitration**. Full
 mechanics per phase are in [`workflows/`](workflows/); the routing table that decides
 team size and round caps by task complexity is in [`SKILL.md`](SKILL.md).
+
+## 🛑 Termination — not vibes
+
+```
+STOP WHEN:
+  requirements confirmed AND
+  architecture approved   AND
+  implementation complete AND
+  qa_findings has 0 unresolved blockers AND
+  security_findings has 0 unresolved blockers
+  OR iteration_count >= 8
+  OR ~10 minutes of wall-clock work elapsed
+```
+
+If a hard cap hits before the real condition is met, Swarm says so explicitly and
+hands you the open items — it never silently keeps debating, and never silently
+pretends everything resolved cleanly. Details in [`SKILL.md`](SKILL.md) Step 4.
+
+## 📦 Install
