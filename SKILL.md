@@ -63,3 +63,29 @@ quality degrades well before the advertised window fills — see `docs/failure-m
 if you want the research behind that.
 
 ## Step 2 — Maintain the state object, not a transcript
+
+Do not let this run as free-flowing chat between personas. Track a single state object
+and update it at every phase transition. Re-derive nothing from earlier prose — read the
+state object back before each phase instead of scrolling up.
+
+```json
+{
+  "task": "",
+  "tier": "",
+  "team": [],
+  "requirements": [],
+  "constraints": [],
+  "architectural_decisions": [{"decision": "", "rationale": "", "raised_by": ""}],
+  "implementation_plan": [],
+  "qa_findings": [],
+  "security_findings": [],
+  "open_disagreements": [{"role_a": "", "role_b": "", "issue": "", "resolution": ""}],
+  "vetoes_exercised": [],
+  "risks": [],
+  "final_decision": "",
+  "iteration_count": 0
+}
+```
+
+Print this object (or the relevant slice) at each phase boundary so the user can watch
+the swarm's actual reasoning, not just a summary of it.
