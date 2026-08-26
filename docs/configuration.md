@@ -9,3 +9,8 @@ By default, team size is chosen by the complexity routing table in `SKILL.md` St
 Override it directly:
 
 > "Run this through Swarm with just Developer + QA, skip PM."
+
+> "Run this through Swarm with the full 6-role team even though it's a small change."
+
+The skill will use your explicit team instead of auto-classifying — it still enforces
+independent analysis and mandatory disagreement for whichever roles you picked.
