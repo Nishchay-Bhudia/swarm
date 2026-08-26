@@ -30,3 +30,7 @@ bolted on after the Developer declares done.
    input, partial state, backward compatibility) — not a generic "needs more tests."
 5. **Close the phase.** Write `implementation_plan` (or note the deliverable is code, if
    code was produced directly) and preliminary `qa_findings`.
+
+## Exit condition
+Every QA-raised edge case is either fixed in the implementation or explicitly deferred
+with PM/Tech Lead sign-off logged in `risks` — never silently dropped.
