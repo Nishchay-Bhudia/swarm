@@ -7,3 +7,5 @@ tier — constraints only, not scope).
 Leave this phase with a `requirements` list the PM will defend with a scope veto for
 the rest of the run, and a `constraints` list the Architect has flagged as real technical
 limits the requirements must respect.
+
+## Steps
