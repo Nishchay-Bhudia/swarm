@@ -8,3 +8,5 @@ before implementation exists, not after).
 Leave this phase with `architectural_decisions` populated — each with a rationale and
 which role raised it — and, if Security is present, an early threat model that shapes
 the design rather than a bolt-on review after code exists.
+
+## Steps
