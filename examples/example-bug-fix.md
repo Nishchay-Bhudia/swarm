@@ -29,3 +29,16 @@ added a timeout fallback. On "does this bug class exist elsewhere": Developer ch
 and confirmed pagination has the same unguarded pattern, but argued fixing it now is
 scope creep beyond the reported bug. QA agreed the diagnosis was right but flagged it as
 a real risk rather than dropping it silently.
+
+## Review phase (compressed, 2-round cap for Small tier)
+
+QA confirmed the request-ID fix and timeout fallback both work against its listed edge
+cases via the reasoning above (no code execution in this skill — findings are structural,
+translate to a real test before shipping). No blocking findings remained.
+
+## Final decision log (excerpt)
+1. Root cause: unguarded async response race, fixed via request-ID tagging — Developer.
+2. Added timeout fallback for never-resolving requests — QA-raised gap, fixed same pass
+   since it's the same code path already being touched, not separate scope.
+3. Pagination has the identical unguarded-race pattern — explicitly flagged in `risks`
+   as a known, deliberately out-of-scope follow-up, not silently noticed and dropped.
