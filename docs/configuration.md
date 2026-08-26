@@ -23,3 +23,10 @@ so explicitly:
 
 > "This isn't actually security-relevant — the file just has 'auth' in its name, it's a
 > UI label. Route as Medium."
+
+The skill will still spot-check that claim rather than blindly trusting it, per the
+Security role's mandate — expect one clarifying pass, not an automatic override.
+
+## Adjust round caps
+Default max debate rounds scale with tier (1 for Tiny up to 5 for Security-critical, per
+the table in `SKILL.md`). Override for a single run:
