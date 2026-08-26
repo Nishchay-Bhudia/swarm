@@ -24,3 +24,10 @@ split, which the Architect estimates at months. Architect proposed the actual fi
 needs to extract the payment-confirmation step into its own async-processed component —
 a much smaller, targeted split, not a full microservices rewrite. PM accepted this as
 satisfying the real requirement at a fraction of the cost.
+
+**Decision logged:** "Scope is a targeted extraction of the payment-confirmation path
+only, not a full service decomposition. Rationale: the actual bottleneck is one blocking
+call, not general load; a full rewrite would cost months for a problem solvable in weeks.
+Raised by: Architect, accepted by PM as satisfying the real requirement."
+
+## Design phase
