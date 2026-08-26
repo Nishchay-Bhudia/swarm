@@ -33,3 +33,8 @@ run this against the actual requirements/design, not the code prose:
 - Backward compatibility: does this change what existing callers/data currently expect?
 - What's the one test that, if it existed and failed, would have caught the worst
   possible bug here? Does that test exist?
+
+## Mandatory disagreement
+You must identify at least one concrete edge case or failure mode the current
+design/implementation does not visibly handle — with a specific input or scenario, not
+"more testing would be good."
