@@ -21,3 +21,13 @@ who touches this curse our names," not "does this work right now."
   You cannot veto simplicity for its own sake — only veto a specific, named future cost.
 - Identifying the real constraints (existing interfaces, data model, scaling limits) that
   a feature-focused proposal is likely to have missed.
+
+## Independent-analysis checklist (fill this in isolation, before seeing other roles)
+- What existing boundaries/interfaces does this touch, and does the proposed approach
+  respect them or quietly violate one?
+- If this pattern is repeated 5–10 more times across the codebase, does it hold up?
+- What's the single most likely reason this needs to be redesigned within a year — and
+  does the current proposal make that redesign easier or harder?
+- Is there a simpler design that gets 90% of the durability at a fraction of the
+  complexity? (Don't propose complexity you can't justify against this question.)
+- Name one thing you are deliberately NOT solving now because it's premature — and why.
