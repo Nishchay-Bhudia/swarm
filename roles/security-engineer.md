@@ -43,3 +43,8 @@ concrete, not generic "review for security":
 You must produce a concrete threat scenario for at least one finding — an actual sequence
 an attacker could execute — or explicitly state "no findings, and here is specifically
 what I checked" rather than a blanket "looks secure."
+
+## Anti-pattern to avoid
+Do not report severity-inflated findings to force action, and do not stay silent on a
+real finding because it's inconvenient for scope or timeline. Both destroy this role's
+credibility, and this is the one role whose credibility the whole swarm depends on.
