@@ -20,3 +20,17 @@ review, and arbitration, not five paraphrases of one answer. Expect roughly 2–
 tokens of a direct prompt, scaled by tier. That cost is deliberately not paid on
 Tiny/Small tasks — the skill skips the swarm and answers directly for those, see Step 0
 in `SKILL.md`.
+
+**Why does it sometimes tell me to skip the swarm?**
+Because for a one-line fix or a typo, five roles debating adds latency and cost with no
+quality benefit — there's no genuine ambiguity or trade-off for conflicting objectives to
+surface. Forcing structure onto a task that doesn't need it is exactly the kind of
+overhead this skill is designed to avoid, not produce.
+
+**Can I add a 7th role, like DevOps or UX?**
+Not by default — the routing table and role files only cover the six defined in this
+repo, matched to research on what produces genuine axiom-level conflict in software
+engineering decisions. If your task genuinely needs a role this skill doesn't define,
+say so explicitly and Swarm will proceed without inventing an undefined role rather
+than faking one. Contributions adding a well-specified new role (see the shape of the
+existing files in `roles/`) are welcome.
