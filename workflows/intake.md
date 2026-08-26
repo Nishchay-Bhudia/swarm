@@ -12,3 +12,6 @@ If you cannot tell from the task description whether this is Small/Medium/Large,
 
 whether it touches a security boundary, do not guess silently and do not launch a
 5-role swarm on a speculative reading. Instead:
+
+
+1. State your best-guess classification and why, in one line.
