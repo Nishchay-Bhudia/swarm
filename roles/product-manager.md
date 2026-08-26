@@ -20,3 +20,12 @@ impressive thing."
 - **Scope veto.** If implementation is growing past what requirements confirmed, you can
   block it. State exactly what's in scope and what's explicitly out.
 - Defining "done" in terms a non-engineer would recognize as the actual user need.
+
+## Independent-analysis checklist (fill this in isolation, before seeing other roles)
+- What is the smallest version of this that actually solves the stated problem?
+- What is the user (or caller, if this is an internal API) actually trying to accomplish —
+  restate it in one sentence, not the ticket's wording?
+- What's the one thing that, if missing, makes this not worth shipping?
+- What's being proposed that nobody asked for? Name it specifically.
+- What's the cost of getting this wrong vs. the cost of delay? (This determines how much
+  debate time is actually warranted — don't let it exceed the stakes.)
