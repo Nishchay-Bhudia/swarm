@@ -54,3 +54,21 @@ not carry raw payment tokens in plaintext between services — flagged as Critic
 finalization until addressed. Architect updated the design to pass only an opaque
 payment-intent reference, with the actual token handled solely by the existing
 PCI-scoped payment component, unchanged.
+
+## Review phase
+
+Security re-reviewed the updated design: no plaintext token exposure in the queue
+message, "pending confirmation" state correctly blocks premature fulfillment. Finding
+closed. QA reviewed the async design for the queue-message-lost case: confirmed the
+timeout-fallback-to-synchronous-retry path directly covers it. No blocking findings
+remained.
+
+## Final decision log (excerpt)
+1. Scope narrowed from full service split to targeted payment-confirmation extraction —
+   Architect, driven by PM's timeline requirement.
+2. "Pending confirmation" order state added to prevent premature fulfillment during the
+   new async gap — Security-raised gap in the initial design, fixed same phase.
+3. Payment tokens never traverse the message queue in plaintext — Security critical
+   finding, binding, fixed before finalization.
+4. Full microservices decomposition explicitly deferred, not rejected — logged in
+   `risks` as a future option if load grows beyond what the targeted fix handles.
