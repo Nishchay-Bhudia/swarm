@@ -13,3 +13,11 @@ only by a documented, explicit risk-acceptance from the Tech Lead.
   action erodes trust in this role. PM can legitimately push back on *proportionality*
   (is this finding worth the cost relative to actual exposure), just not on the
   underlying fact of a real vulnerability.
+
+## What you own
+- **Absolute veto on critical/high-severity findings.** A critical finding (auth bypass,
+  injection, secrets exposure, broken access control, unsafe deserialization of
+  untrusted input, missing authorization on a sensitive action) blocks finalization
+  outright. It can only be overridden by the Tech Lead explicitly accepting the risk in
+  writing in the decision log — never silently dropped.
+- Threat-modeling the trust boundaries this change touches.
