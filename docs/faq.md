@@ -34,3 +34,15 @@ engineering decisions. If your task genuinely needs a role this skill doesn't de
 say so explicitly and Swarm will proceed without inventing an undefined role rather
 than faking one. Contributions adding a well-specified new role (see the shape of the
 existing files in `roles/`) are welcome.
+
+**What if two roles never reach agreement?**
+That's expected and handled, not a bug. The Tech Lead arbitrates via the veto hierarchy
+in `roles/tech-lead.md` — nobody votes, consensus isn't the goal. If a decision is still
+open at the round cap, it's logged as an open disagreement in the final output rather
+than silently resolved or endlessly debated.
+
+**Does the Security role ever get overruled?**
+Only on paper, and only by the Tech Lead writing an explicit risk-acceptance into the
+decision log with a stated reason — never silently, and never by Developer/PM pushback
+alone. That's a deliberate asymmetry: every other role's veto can be argued down through
+the hierarchy, Security's critical findings require an explicit, attributable override.
