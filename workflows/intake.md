@@ -15,3 +15,6 @@ whether it touches a security boundary, do not guess silently and do not launch 
 
 
 1. State your best-guess classification and why, in one line.
+
+2. If the guess materially changes team size (e.g., Small vs. Large) or triggers the
+   Security-critical override, ask the user one direct question to resolve it rather
