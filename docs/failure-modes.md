@@ -21,3 +21,7 @@ approach is fundamentally flawed. Each entry names the signal and the fix.
 | **Over-engineering** | Architect's design is materially more complex than the requirements need | This is the Architect role's own characteristic failure mode. PM or Tech Lead should call it out directly — that's a legitimate check, not something to smooth over. |
 | **Missing edge cases that pass review anyway** | Implementation passes QA's stated checks but the checklist itself was shallow | QA's checklist in `roles/qa-engineer.md` is concrete on purpose (boundary values, concurrency, dependency failure, malformed input, partial state, backward compatibility) — a review that didn't visibly walk that list wasn't a real review. |
 | **Silent finding drop** | A Security or QA finding is raised once and never appears in the final decision log | Every raised finding must end up in `qa_findings`/`security_findings` as either fixed, or explicitly deferred with a named role's sign-off in `risks`. If it just vanishes, that's the bug. |
+
+| **Token/round runaway** | The run keeps going well past the tier's expected cost with no termination in sight | The hard caps in `SKILL.md` Step 4 exist precisely for this — iteration count and the AND-condition on findings. If you hit the cap, report what's unresolved rather than continuing past it. |
+
+## Why these specific fixes, not generic ones
