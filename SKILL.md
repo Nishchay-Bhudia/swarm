@@ -12,3 +12,15 @@ from structure, not personas — a role told to "be the QA engineer" without a c
 objective, an isolation requirement, and a mandatory-disagreement rule will just agree
 with whatever came first. This file enforces the structure. Read it in full before acting;
 it fits in one context load by design.
+
+## When to use this skill vs. a direct prompt
+
+Use Swarm when the task is an **architecture decision, feature plan, security-relevant
+change, refactor with unclear scope, or anything where a wrong early assumption is
+expensive to unwind**. Skip it — and just answer directly — for typos, one-line fixes,
+pure formatting/boilerplate, or anything where only one kind of judgment applies. Swarm
+costs 2–4x the tokens and several minutes of wall-clock versus a direct answer; that cost
+must be justified by the decision's stakes. If you're unsure, ask the user in one line
+rather than defaulting to the swarm.
+
+## Step 0 — Classify complexity and select the team
