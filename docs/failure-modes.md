@@ -33,3 +33,5 @@ What actually works, per the design behind this skill: independent analysis befo
 cross-exposure, mandatory concrete disagreement (not optional), role-specific checklists
 instead of open-ended review, and hard stop conditions instead of "keep going until
 satisfied." If a run is misbehaving, the fix is almost always "which of these four things
+
+did this run skip," not "add more debate."
