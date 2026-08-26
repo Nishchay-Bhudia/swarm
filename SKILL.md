@@ -36,3 +36,19 @@ Score the task (rough heuristic, not arithmetic precision):
 - Irreversible or hard-to-unwind technical/product decision → **Architectural**
 
 Route the team and workflow:
+
+| Tier | Roles | Workflow | Max debate rounds |
+|---|---|---|---|
+| Tiny | Developer, Tech Lead | `workflows/implementation.md` → `workflows/review.md` (compressed) | 1 |
+| Small | Developer, QA, Tech Lead | `workflows/implementation.md` → `workflows/review.md` | 2 |
+| Medium | Product Manager, Developer, QA, Tech Lead | `workflows/requirements.md` → `workflows/implementation.md` → `workflows/review.md` | 3 |
+| Large | Product Manager, Architect, Developer, QA, Tech Lead | `workflows/requirements.md` → `workflows/design.md` → `workflows/implementation.md` → `workflows/review.md` | 4 |
+| Architectural | Product Manager, Architect, Security Engineer, QA, Tech Lead | `workflows/requirements.md` → `workflows/design.md` → `workflows/review.md` | 4 |
+| Security-critical | Architect, Developer, Security Engineer, QA, Tech Lead | `workflows/design.md` → `workflows/implementation.md` → `workflows/review.md` (security review is never skipped or compressed) | 5 |
+
+For Tiny/Small tasks, tell the user in one line that you're skipping the swarm and why,
+then just do the work directly — do not force a team onto a task that doesn't need one.
+
+Never include a role outside this table's tiers unless the user explicitly asks for one.
+DevOps, UX, and Technical Writer roles do not exist in this skill; if a task genuinely
+needs one, say so and proceed without inventing a role that has no definition file.
