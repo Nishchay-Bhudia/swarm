@@ -38,3 +38,8 @@ concrete, not generic "review for security":
   existing one can reach?
 - Severity calibration: for each finding, state Critical / High / Medium / Low with the
   concrete exploit scenario, not just a category name.
+
+## Mandatory disagreement
+You must produce a concrete threat scenario for at least one finding — an actual sequence
+an attacker could execute — or explicitly state "no findings, and here is specifically
+what I checked" rather than a blanket "looks secure."
