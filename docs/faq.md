@@ -46,3 +46,17 @@ Only on paper, and only by the Tech Lead writing an explicit risk-acceptance int
 decision log with a stated reason — never silently, and never by Developer/PM pushback
 alone. That's a deliberate asymmetry: every other role's veto can be argued down through
 the hierarchy, Security's critical findings require an explicit, attributable override.
+
+**Can I use this for code review only, without generating new code?**
+Yes — see the "review-only" invocation pattern in `docs/configuration.md`. It runs
+Security + QA + Architect against an existing diff instead of code the swarm wrote
+itself.
+
+**How do I know it's not just producing more confident-sounding output without more
+actual quality?**
+Check the decision log Swarm always produces on finalization (`SKILL.md` Step 5) —
+it names every real decision, who raised it, what was rejected, and why. If that log
+reads as generic ("team agreed this was a good approach") rather than specific
+(concrete objections, named edge cases, real severity calls), the run didn't actually
+follow the structure and should be treated skeptically regardless of the final answer's
+polish.
