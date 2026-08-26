@@ -28,3 +28,9 @@ items (per the termination condition in `SKILL.md`), and a closed decision log.
    logs why.
 4. **Mandatory disagreement check** applies per-role as in other phases — a reviewing
    role that finds nothing must state what it specifically checked, not just "LGTM."
+
+## Exit condition — this gates the whole run's termination (see `SKILL.md` Step 4)
+`security_findings` and `qa_findings` both have zero unresolved blocking items. If a hard
+round cap is hit first, Tech Lead makes the call, logs the open item in
+`open_disagreements`, and the run reports it as unresolved rather than pretending it
+closed clean.
