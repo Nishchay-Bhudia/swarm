@@ -7,3 +7,5 @@ final shape against the design decisions), **Tech Lead** (arbitrates and closes)
 ## Goal
 Leave this phase with `security_findings` and `qa_findings` at zero unresolved blocking
 items (per the termination condition in `SKILL.md`), and a closed decision log.
+
+## Steps
