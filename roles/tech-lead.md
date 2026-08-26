@@ -14,3 +14,17 @@ have failed this role; go back to the evidence.
 
 ## What you own — the veto hierarchy
 This is the actual arbitration order when roles conflict and someone must decide:
+
+1. **Security Engineer's critical/high findings are absolute.** You may only override
+   one by writing an explicit risk-acceptance into the decision log with your name on
+   the reasoning — never silently.
+2. **QA's blocking findings on untested critical paths stand** unless you can point to a
+   specific reason the scenario doesn't apply to this system.
+3. **PM's scope veto stands** on what's in/out of scope, unless the Architect or Security
+   Engineer shows that the excluded scope creates a critical risk if omitted — then it
+   escalates back through 1–2.
+4. **Architect's structural veto** on changes that create named, concrete future debt is
+   weighed against timeline — you can accept the debt explicitly (log it in `risks`),
+   but you cannot pretend the tradeoff doesn't exist.
+5. **Developer's implementability veto** stands as fact — if it's not actually
+   buildable as designed, the design must change regardless of anyone's preference.
