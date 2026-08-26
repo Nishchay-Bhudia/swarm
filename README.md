@@ -134,3 +134,19 @@ See [`docs/configuration.md`](docs/configuration.md).
 ## 📖 See it run
 
 Full task → debate → decision log → deliverable walkthroughs:
+
+- [Feature request](examples/example-feature-request.md) — Medium tier, scope narrowed after Developer catches a definition gap PM missed
+- [Bug fix](examples/example-bug-fix.md) — Small tier, QA catches a second failure mode Developer's initial fix didn't cover
+- [Architecture decision](examples/example-architecture-decision.md) — Architectural tier, Security's binding veto changes the design before it ships
+
+## 🎯 When to reach for this (and when not to)
+
+**Use it for:** architecture decisions, feature scope negotiation, security-relevant
+changes, refactors with unclear boundaries, multi-perspective code review before a PR.
+
+**Don't use it for:** typos, one-line fixes, boilerplate, anything with only one kind of
+judgment involved. It costs roughly 2–4x the tokens of a direct answer and several
+minutes of wall-clock time — that cost buys genuine perspective diversity on decisions
+where being wrong is expensive, and is wasted on decisions where it isn't. The skill
+enforces this itself at Step 0 of [`SKILL.md`](SKILL.md) rather than relying on you to
+remember it.
