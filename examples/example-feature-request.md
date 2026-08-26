@@ -42,3 +42,13 @@ gap."
 actual size threshold, is it defined anywhere), concurrent export requests from the same
 user (should the second request queue or reject), and what happens if the download is
 interrupted mid-transfer.
+
+**Debate:** Developer had not implemented the async path or a size threshold at all —
+conceded this was a real gap, not an edge case to defer, since PM's requirements
+explicitly included the async path. Zero-content case: agreed to fix, one-line guard.
+Concurrent requests: Developer argued low real-world likelihood for this specific
+feature and proposed simply not de-duplicating for v1, logged as accepted risk rather
+than fixed, since duplicate exports are wasteful but not harmful. QA accepted that
+resolution given the stated reasoning.
+
+## Review phase
