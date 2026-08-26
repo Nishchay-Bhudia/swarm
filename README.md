@@ -123,3 +123,14 @@ Use Swarm to plan how we should add rate limiting to our public API.
 Run this through Swarm — I want the security and QA perspective on this diff
 before I open a PR.
 ```
+
+For a one-line fix, invoking Swarm will tell you it's skipping the swarm and just
+answer directly — that's intended, not a bug. See [When to use this skill vs. a direct
+prompt](SKILL.md#when-to-use-this-skill-vs-a-direct-prompt).
+
+Want a specific team, a tighter round cap, or a review-only run against existing code?
+See [`docs/configuration.md`](docs/configuration.md).
+
+## 📖 See it run
+
+Full task → debate → decision log → deliverable walkthroughs:
