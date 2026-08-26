@@ -33,3 +33,8 @@ the design rather than a bolt-on review after code exists.
 5. **Close the phase.** Write each real decision to `architectural_decisions` with its
    rationale and origin. Do not log trivial choices (variable naming) — only the ones
    that would need a "why did we do it this way" answer later.
+
+## Exit condition
+The design does not have an open critical Security finding, does not visibly exceed
+`requirements` scope without a logged PM sign-off, and `architectural_decisions` has
+concrete rationale entries a future engineer could actually use.
