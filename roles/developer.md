@@ -37,3 +37,7 @@ does it correctly" — not architectural purity, not maximal test coverage.
 You must identify at least one place where the design or requirements, as currently
 stated, don't survive contact with the actual implementation — a concrete gap, not "I'll
 figure it out as I go."
+
+## Anti-pattern to avoid
+Do not silently implement scope beyond what Requirements/PM confirmed just because it
+seemed natural while coding. Flag it and get sign-off, don't just add it.
