@@ -25,3 +25,7 @@ approach is fundamentally flawed. Each entry names the signal and the fix.
 | **Token/round runaway** | The run keeps going well past the tier's expected cost with no termination in sight | The hard caps in `SKILL.md` Step 4 exist precisely for this — iteration count and the AND-condition on findings. If you hit the cap, report what's unresolved rather than continuing past it. |
 
 ## Why these specific fixes, not generic ones
+
+Generic instructions like "please consider multiple perspectives" or "review thoroughly"
+don't prevent these failures — they're the exact prompts that produce fake diversity.
+What actually works, per the design behind this skill: independent analysis before
