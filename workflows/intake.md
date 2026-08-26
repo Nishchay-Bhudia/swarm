@@ -23,3 +23,7 @@ whether it touches a security boundary, do not guess silently and do not launch 
 3. If the ambiguity doesn't change team size or routing (e.g., it's clearly Medium
 
    either way), proceed without asking — don't stall on cosmetic uncertainty.
+
+
+## Initializing the state object
+Populate `task`, `tier`, and `team` in the state object from `SKILL.md` before entering
