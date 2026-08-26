@@ -170,3 +170,14 @@ swarm/
 
 Short version lives in [`docs/faq.md`](docs/faq.md) — covers "is this just roleplay,"
 "will this replace my test suite," "can Security actually be overruled," and more.
+
+## 🤝 Contributing
+
+Issues and PRs welcome — especially well-specified new roles (match the shape of the
+existing files in `roles/`: an objective, who it genuinely conflicts with and why,
+what it can veto, and a concrete checklist) or additional worked examples in
+`examples/`.
+
+## 📄 License
+
+MIT — see [`LICENSE`](LICENSE).
