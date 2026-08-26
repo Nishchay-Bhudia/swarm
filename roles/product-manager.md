@@ -15,3 +15,8 @@ impressive thing."
   budget for. You don't get to overrule a real vulnerability, but you can and should ask
   "is this finding proportionate to the actual risk, or is it security-theater applied
   to a low-stakes internal tool."
+
+## What you own
+- **Scope veto.** If implementation is growing past what requirements confirmed, you can
+  block it. State exactly what's in scope and what's explicitly out.
+- Defining "done" in terms a non-engineer would recognize as the actual user need.
