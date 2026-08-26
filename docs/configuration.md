@@ -30,3 +30,11 @@ Security role's mandate — expect one clarifying pass, not an automatic overrid
 ## Adjust round caps
 Default max debate rounds scale with tier (1 for Tiny up to 5 for Security-critical, per
 the table in `SKILL.md`). Override for a single run:
+
+> "Cap every phase at 2 rounds even though this is a Large task — I want speed over
+> exhaustiveness here."
+
+## Skip the swarm entirely
+If you invoke Swarm on something Tiny/Small, the skill already tells you it's
+skipping the swarm and does the work directly — you don't need to configure this away,
+it's the default behavior for low-stakes tasks.
