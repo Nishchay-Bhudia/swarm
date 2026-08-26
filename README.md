@@ -6,61 +6,64 @@
   <img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-Skill-D97757?style=flat-square">
   <img alt="License" src="https://img.shields.io/badge/license-MIT-blue?style=flat-square">
   <img alt="Roles" src="https://img.shields.io/badge/roles-6-6b46c1?style=flat-square">
-  <img alt="Status" src="https://img.shields.io/badge/status-active-brightgreen?style=flat-square">
 </p>
 
-<p align="center"><b>Six engineers who genuinely disagree with each other, arguing inside a single Claude Code session — so the disagreement happens before your code ships, not after.</b></p>
+Six engineering roles with genuinely conflicting priorities, arguing through a task
+inside a single Claude Code session, so the disagreements happen before the code ships
+instead of after.
 
 ---
 
-## 🔥 What this actually is
+## What this is
 
-Most "multi-agent persona" prompts are theater: ask Claude to be five different people
-and it gives you one opinion in five voices, because nothing forces the personas to
-actually disagree. Swarm is not that.
+Most "multi-agent persona" prompts don't hold up. Ask Claude to be five different people
+and you tend to get one opinion in five voices, because nothing actually forces the
+personas to disagree with each other. Swarm tries to avoid that trap.
 
-Swarm is a **Claude Code Skill** — a structured state machine, not a roleplay script —
-that runs your task through a small team of roles with **genuinely conflicting
-objectives** (the Product Manager wants scope small, the Architect wants it durable, the
-Security Engineer can block everyone else, and nobody gets a vote — the Tech Lead
-arbitrates). Each role forms its position **in isolation** before seeing anyone else's,
-every role is **required to produce a concrete objection** before a phase can close, and
-the whole run is bounded by hard stop conditions so it can't spiral.
+It's a Claude Code Skill — a state machine, not a script for Claude to roleplay from —
+that runs a task through a small team of roles that want different things. The Product
+Manager wants scope small. The Architect wants it to hold up in a year. The Security
+Engineer can block everyone else and nobody can vote that down. The Tech Lead makes the
+final call and has to say why the losing argument lost. Each role writes its position on
+its own before it sees anyone else's, and every role has to raise a real objection before
+a phase is allowed to close.
 
-It's built from a synthesis of 90+ sources on multi-agent LLM reasoning, code review
-effectiveness, and agent failure modes — not vibes. See [`docs/failure-modes.md`](docs/failure-modes.md)
-for the specific things this design prevents, and why generic "consider multiple
-perspectives" prompting doesn't.
+None of this is guesswork — it's based on reading through a fair amount of research on
+multi-agent LLM reasoning, code review effectiveness, and where these setups tend to
+break down. `docs/failure-modes.md` covers the specific failure patterns this design is
+meant to catch, and why prompting Claude to just "consider multiple perspectives" doesn't
+really do that on its own.
 
-## 🧠 Why structure beats personas
+## Why structure instead of just personas
 
 | Without structure | With Swarm |
 |---|---|
-| All roles see the same context → converge on the same answer instantly | Independent analysis first — each role commits to a position before seeing the others' |
-| "Please consider security too" → generic, easy to skip | Security Engineer has a **binding veto** on critical findings — only overridable by an explicit, logged Tech Lead risk-acceptance |
-| Roles politely agree with whoever spoke first | **Mandatory disagreement** — every role must raise a concrete objection or explicitly justify having none |
-| Debate runs until it "feels" done | Hard round caps + a verifiable AND-condition on findings — see [Termination](#-termination-not-vibes) |
-| You get an answer | You get an answer **and** a decision log showing what was rejected, by whom, and why |
+| Every role sees the same context and lands on the same answer immediately | Each role writes its position in isolation before seeing the others' |
+| "Also think about security" — easy to skip, no teeth | Security has a binding veto on critical findings, overridable only by an explicit, logged risk-acceptance from the Tech Lead |
+| Roles agree with whoever spoke first | A role has to raise a concrete objection, or explicitly say why it has none |
+| Debate runs until it feels finished | Hard round caps and a checkable stop condition — see below |
+| You get an answer | You get an answer plus a log of what was rejected and why |
 
-## 👥 The team
+## The team
 
 | Role | Optimizes for | Can veto | Conflicts with |
 |---|---|---|---|
-| 📋 **Product Manager** | User value, scope, timeline | Scope creep | Architect, Security (proportionality) |
-| 🏛️ **Architect** | Maintainability, long-term cost | Structural debt | PM (over-scoping), Developer (over-simplifying) |
-| 💻 **Developer** | Correct, simple implementation | Non-implementable designs | Architect, QA, Security (rework cost) |
-| 🔍 **QA Engineer** | Edge cases, regressions | Untested critical paths | Developer (scope of testing) |
-| 🛡️ **Security Engineer** | Vulnerability prevention | **Critical findings — absolute** | Everyone (friction vs. real risk) |
-| ⚖️ **Tech Lead** | The right trade-off | Arbitrates all of the above | Nobody — arbitrates, never argues its own stake |
+| Product Manager | User value, scope, timeline | Scope creep | Architect, Security (on proportionality) |
+| Architect | Maintainability, long-term cost | Structural debt | PM (over-scoping), Developer (over-simplifying) |
+| Developer | Correct, simple implementation | Designs that aren't actually buildable | Architect, QA, Security (rework cost) |
+| QA Engineer | Edge cases, regressions | Untested critical paths | Developer (how much testing is enough) |
+| Security Engineer | Vulnerability prevention | Critical findings, absolute | Everyone, on friction vs. actual risk |
+| Tech Lead | The right trade-off | Arbitrates the rest | Nobody — arbitrates, doesn't argue its own stake |
 
-Full role definitions with their independent-analysis checklists live in [`roles/`](roles/).
+Full definitions, including each role's independent-analysis checklist, are in
+[`roles/`](roles/).
 
-## ⚙️ How a run actually flows
+## How a run flows
 
 ```mermaid
 flowchart TD
     A[Task in] --> B{Classify complexity}
-    B -->|Tiny / Small| Z[Answer directly — swarm skipped]
+    B -->|Tiny / Small| Z[Answer directly, swarm skipped]
     B -->|Medium / Large / Architectural / Security-critical| C[Select team]
     C --> D[Requirements]
     D --> E[Design]
@@ -71,12 +74,13 @@ flowchart TD
     H -->|Yes, or hard cap hit| I[Decision log + deliverable + open risks]
 ```
 
-Every phase runs the same inner loop: **independent analysis → cross-exposure →
-structured debate → mandatory disagreement check → Tech Lead arbitration**. Full
-mechanics per phase are in [`workflows/`](workflows/); the routing table that decides
-team size and round caps by task complexity is in [`SKILL.md`](SKILL.md).
+Every phase runs the same loop: independent analysis, then cross-exposure, then
+structured debate, then a check that someone actually disagreed, then the Tech Lead
+arbitrates. The exact mechanics per phase are in [`workflows/`](workflows/). The routing
+table that decides team size and round caps by task complexity is in
+[`SKILL.md`](SKILL.md).
 
-## 🛑 Termination — not vibes
+## Termination
 
 ```
 STOP WHEN:
@@ -86,34 +90,33 @@ STOP WHEN:
   qa_findings has 0 unresolved blockers AND
   security_findings has 0 unresolved blockers
   OR iteration_count >= 8
-  OR ~10 minutes of wall-clock work elapsed
+  OR roughly 10 minutes of wall-clock work has elapsed
 ```
 
-If a hard cap hits before the real condition is met, Swarm says so explicitly and
-hands you the open items — it never silently keeps debating, and never silently
-pretends everything resolved cleanly. Details in [`SKILL.md`](SKILL.md) Step 4.
+If a hard cap is hit before the actual condition is satisfied, Swarm says so and hands
+back the open items rather than pretending everything resolved cleanly. Details in
+[`SKILL.md`](SKILL.md), step 4.
 
-## 📦 Install
+## Install
 
-Swarm is a Claude Code Skill — plain markdown, no build step, no dependencies.
+Swarm is plain markdown — no build step, no dependencies.
 
-**Option A — clone into your skills directory:**
+**Clone into your skills directory (all projects):**
 ```bash
 git clone https://github.com/Nishchay-Bhudia/swarm.git ~/.claude/skills/swarm
 ```
 
-**Option B — drop it into a single project:**
+**Or drop it into one project:**
 ```bash
 git clone https://github.com/Nishchay-Bhudia/swarm.git .claude/skills/swarm
 ```
 
-Claude Code picks up skills from `~/.claude/skills/` (all projects) or
-`.claude/skills/` (this project only) automatically — no registration step. Restart
-your session if it was already open.
+Claude Code picks up skills from `~/.claude/skills/` or a project's `.claude/skills/`
+automatically — nothing else to register. Restart your session if it was already open.
 
-## 🚀 Use it
+## Using it
 
-Just describe the task — Swarm classifies complexity and picks its own team:
+Describe the task normally — it classifies complexity and picks its own team:
 
 ```
 Use Swarm to plan how we should add rate limiting to our public API.
@@ -124,60 +127,58 @@ Run this through Swarm — I want the security and QA perspective on this diff
 before I open a PR.
 ```
 
-For a one-line fix, invoking Swarm will tell you it's skipping the swarm and just
-answer directly — that's intended, not a bug. See [When to use this skill vs. a direct
-prompt](SKILL.md#when-to-use-this-skill-vs-a-direct-prompt).
+For something small, like a one-line fix, Swarm will say it's skipping the team and
+just answer directly. That's intended behavior, not a bug — see
+[When to use this vs. a direct prompt](SKILL.md#when-to-use-this-skill-vs-a-direct-prompt).
 
-Want a specific team, a tighter round cap, or a review-only run against existing code?
-See [`docs/configuration.md`](docs/configuration.md).
+For a specific team, a tighter round cap, or a review-only run against code you already
+wrote, see [`docs/configuration.md`](docs/configuration.md).
 
-## 📖 See it run
+## Worked examples
 
-Full task → debate → decision log → deliverable walkthroughs:
+Full task-to-decision-log walkthroughs:
 
-- [Feature request](examples/example-feature-request.md) — Medium tier, scope narrowed after Developer catches a definition gap PM missed
-- [Bug fix](examples/example-bug-fix.md) — Small tier, QA catches a second failure mode Developer's initial fix didn't cover
-- [Architecture decision](examples/example-architecture-decision.md) — Architectural tier, Security's binding veto changes the design before it ships
+- [Feature request](examples/example-feature-request.md) — scope gets narrowed after the Developer catches a gap the PM's requirements missed
+- [Bug fix](examples/example-bug-fix.md) — QA catches a second failure mode the Developer's first fix didn't cover
+- [Architecture decision](examples/example-architecture-decision.md) — Security's binding veto changes the design before it ships
 
-## 🎯 When to reach for this (and when not to)
+## When to use this, and when not to
 
-**Use it for:** architecture decisions, feature scope negotiation, security-relevant
-changes, refactors with unclear boundaries, multi-perspective code review before a PR.
+Good fit: architecture decisions, feature scope negotiation, security-relevant changes,
+refactors with unclear boundaries, multi-perspective review before opening a PR.
 
-**Don't use it for:** typos, one-line fixes, boilerplate, anything with only one kind of
-judgment involved. It costs roughly 2–4x the tokens of a direct answer and several
-minutes of wall-clock time — that cost buys genuine perspective diversity on decisions
-where being wrong is expensive, and is wasted on decisions where it isn't. The skill
-enforces this itself at Step 0 of [`SKILL.md`](SKILL.md) rather than relying on you to
-remember it.
+Not a good fit: typos, one-line fixes, boilerplate, anything where only one kind of
+judgment actually applies. It runs at roughly 2–4x the token cost of a direct answer and
+takes a few extra minutes. That's worth it when a wrong assumption is expensive to
+unwind, and wasted otherwise — the skill checks for this itself at step 0 of
+[`SKILL.md`](SKILL.md) rather than relying on you to remember to skip it.
 
-## 🗂️ Repository layout
+## Repository layout
 
 ```
 swarm/
-├── SKILL.md              # Orchestration — routing, phases, state, termination
-├── roles/                 # One file per role: objective, vetoes, checklist
-├── workflows/              # Phase mechanics: requirements, design, implementation, review
-├── examples/                # Full worked walkthroughs
+├── SKILL.md            orchestration: routing, phases, state, termination
+├── roles/              one file per role — objective, vetoes, checklist
+├── workflows/          phase mechanics: requirements, design, implementation, review
+├── examples/           worked walkthroughs
 ├── docs/
-│   ├── configuration.md      # Overrides: team size, round caps, review-only mode
-│   ├── failure-modes.md       # What breaks, how to spot it, how the design prevents it
-│   └── faq.md                   # Common questions, answered directly
-└── assets/                        # README visuals
+│   ├── configuration.md   overrides: team size, round caps, review-only mode
+│   ├── failure-modes.md   what breaks, how to spot it, how this prevents it
+│   └── faq.md             common questions
+└── assets/             README visuals
 ```
 
-## ❓ FAQ
+## FAQ
 
-Short version lives in [`docs/faq.md`](docs/faq.md) — covers "is this just roleplay,"
-"will this replace my test suite," "can Security actually be overruled," and more.
+[`docs/faq.md`](docs/faq.md) covers the recurring questions — is this just roleplay,
+does it replace testing, can Security actually be overruled, and a few others.
 
-## 🤝 Contributing
+## Contributing
 
-Issues and PRs welcome — especially well-specified new roles (match the shape of the
-existing files in `roles/`: an objective, who it genuinely conflicts with and why,
-what it can veto, and a concrete checklist) or additional worked examples in
-`examples/`.
+Issues and PRs are welcome, especially a well-specified new role (follow the shape of
+the existing files in `roles/`: an objective, who it genuinely conflicts with and why,
+what it can veto, a concrete checklist) or another worked example under `examples/`.
 
-## 📄 License
+## License
 
 MIT — see [`LICENSE`](LICENSE).
