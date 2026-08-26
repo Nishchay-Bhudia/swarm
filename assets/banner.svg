@@ -17,3 +17,6 @@
       <stop offset="100%" stop-color="#3dd6ff"/>
     </linearGradient>
   </defs>
+
+
+  <rect width="1200" height="300" rx="18" fill="url(#bg)"/>
