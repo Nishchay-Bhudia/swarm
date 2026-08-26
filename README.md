@@ -110,3 +110,16 @@ git clone https://github.com/Nishchay-Bhudia/swarm.git .claude/skills/swarm
 Claude Code picks up skills from `~/.claude/skills/` (all projects) or
 `.claude/skills/` (this project only) automatically — no registration step. Restart
 your session if it was already open.
+
+## 🚀 Use it
+
+Just describe the task — Swarm classifies complexity and picks its own team:
+
+```
+Use Swarm to plan how we should add rate limiting to our public API.
+```
+
+```
+Run this through Swarm — I want the security and QA perspective on this diff
+before I open a PR.
+```
