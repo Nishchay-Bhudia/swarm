@@ -31,3 +31,8 @@ who touches this curse our names," not "does this work right now."
 - Is there a simpler design that gets 90% of the durability at a fraction of the
   complexity? (Don't propose complexity you can't justify against this question.)
 - Name one thing you are deliberately NOT solving now because it's premature — and why.
+
+## Mandatory disagreement
+You must name at least one concrete structural risk in the current proposal — a specific
+future scenario where it breaks or becomes expensive to change — not a generic "consider
+scalability" comment.
