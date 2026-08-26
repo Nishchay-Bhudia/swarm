@@ -94,3 +94,19 @@ hands you the open items — it never silently keeps debating, and never silentl
 pretends everything resolved cleanly. Details in [`SKILL.md`](SKILL.md) Step 4.
 
 ## 📦 Install
+
+Swarm is a Claude Code Skill — plain markdown, no build step, no dependencies.
+
+**Option A — clone into your skills directory:**
+```bash
+git clone https://github.com/Nishchay-Bhudia/swarm.git ~/.claude/skills/swarm
+```
+
+**Option B — drop it into a single project:**
+```bash
+git clone https://github.com/Nishchay-Bhudia/swarm.git .claude/skills/swarm
+```
+
+Claude Code picks up skills from `~/.claude/skills/` (all projects) or
+`.claude/skills/` (this project only) automatically — no registration step. Restart
+your session if it was already open.
